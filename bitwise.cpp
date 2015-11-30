@@ -1,4 +1,9 @@
+#include <algorithm>
+#include <iostream>
+#include <math.h>
 #include "bitwise.h"
+
+using namespace std;
 
 /*
 Determines the parity of an unsigned long
@@ -48,6 +53,29 @@ unsigned long Bitwise::rightPropagateBits(unsigned long bits)
 			bits |= 1 << count;
 			count++;
 		}
+	}
+	return bits;
+}
+
+/*
+Determines the one's complement
+input: an unsigned long
+output: the signed long that is the one's complement (except -0)
+*/
+long Bitwise::onesComplement(unsigned long bits)
+{
+	// Calculate the most-significant bit
+	short bitPlace = floor(log2(bits)); // Number of bits
+	
+	// If most-significant bit of most-significant byte is set, then negative
+	if ((bitPlace + 1) % 8 == 0)
+	{
+		for (int i = 0; i <= bitPlace; i++)
+		{
+			bits ^= (1 << i);
+		}
+		// Make the results reflect the negativity of the number
+		bits *= -1;
 	}
 	return bits;
 }

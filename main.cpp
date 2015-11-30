@@ -71,4 +71,33 @@ void testFunctions()
 	cout << "Propagate right bits of 17 (10001) to "
 		 << Bitwise::rightPropagateBits((unsigned long)17) << endl;
 	assert(Bitwise::rightPropagateBits((unsigned long)17) == (unsigned long)17);
+	
+	cout << endl;
+
+	
+	cout << "One's complement of 8 is "
+		 << Bitwise::onesComplement((unsigned long)8)
+		 << endl;
+	assert(Bitwise::onesComplement((unsigned long)8) == (long)8);	 
+		 
+	cout << "One's complement of 7 is "
+		 << Bitwise::onesComplement((unsigned long)7)
+		 << endl;
+	assert(Bitwise::onesComplement((unsigned long)7) == (long)7);	 
+		 
+	cout << "One's complement of 128 is "
+		 << Bitwise::onesComplement((unsigned long)128)
+		 << endl;
+	assert(Bitwise::onesComplement((unsigned long)128) == (long)-127);	 
+		 
+	cout << "One's complement of 255 is "
+		 << Bitwise::onesComplement((unsigned long)255)
+		 << endl;
+	// Can't return -0
+	assert(Bitwise::onesComplement((unsigned long)255) == (long)0);
+		 
+	cout << "One's complement of 254 is "
+		 << Bitwise::onesComplement((unsigned long)254)
+		 << endl;
+	assert(Bitwise::onesComplement((unsigned long)254) == (long)-1);
 }
